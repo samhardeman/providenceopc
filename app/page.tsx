@@ -2,8 +2,11 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
+
 import { motion, AnimatePresence } from "framer-motion";
 import { BookOpen, X, ArrowRight, Instagram, Facebook, QrCode, Mouse } from "lucide-react";
+import Navbar from "@/components/Navbar"; // Adjust path as needed
 
 const BELIEFS = [
   {
@@ -72,33 +75,7 @@ export default function Home() {
 
       <div className="relative z-10 h-full flex flex-col">
         
-        {/* Navbar */}
-        <nav className="w-full p-6 md:p-8">
-          <div className="max-w-[1200px] mx-auto flex items-center justify-between relative">
-            <div className="hidden md:flex gap-12 text-2xl font-serif">
-              {navLinks.slice(0, 3).map(l => <a key={l} href="#" className="hover:opacity-60 transition">{l}</a>)}
-            </div>
-
-            {/* Logo with Custom Tight Tracking */}
-            <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 top-0 flex flex-col items-start md:items-center">
-              <h1 
-                className="text-3xl md:text-5xl font-serif uppercase leading-none"
-                style={{ letterSpacing: '-0.075em' }}
-              >
-                Providence
-              </h1>
-              <span className="w-full text-center text-[10px] md:text-xs font-sans tracking-[0.2em] uppercase opacity-80 mt-1 md:mt-2">
-                Orthodox Presbyterian Church
-              </span>
-            </div>
-
-            <div className="hidden md:flex gap-12 text-2xl font-serif ml-auto">
-              {navLinks.slice(3).map(l => <a key={l} href="#" className="hover:opacity-60 transition">{l}</a>)}
-            </div>
-
-            <button onClick={() => setMenuOpen(true)} className="md:hidden ml-auto p-2 relative z-[110]"><BookOpen size={30} /></button>
-          </div>
-        </nav>
+        <Navbar />
 
         {/* --- MAIN CONTENT --- */}
         <div className="flex-grow flex items-start md:items-center justify-center p-6 md:p-8 pt-32 md:pt-8">
@@ -177,25 +154,32 @@ export default function Home() {
                 </div>
               )}
 
+              {/* SECTION 4: CONTACT */}
               {index === 3 && (
                 <div className="w-full max-w-[1100px] border border-white/10 p-8 md:p-16 backdrop-blur-md bg-white/5 mt-8 md:mt-0">
                   <div className="flex flex-col md:flex-row justify-between gap-10">
                     <div className="space-y-6 text-center md:text-left">
                       <h2 className="text-4xl md:text-7xl font-serif">Contact Us</h2>
                       <p className="text-xl md:text-2xl opacity-70">info@providencescottsdale.com</p>
-                      <div className="bg-white p-3 w-32 h-32 md:w-40 md:h-40 mx-auto md:mx-0 mt-6"><QrCode className="w-full h-full text-black" /></div>
+                      <div className="bg-white p-3 w-32 h-32 md:w-40 md:h-40 mx-auto md:mx-0 mt-6">
+                        <QrCode className="w-full h-full text-black" />
+                      </div>
                     </div>
                     <div className="flex flex-col items-center md:items-end justify-between">
-                      <div className="flex gap-8"><Instagram size={32}/><Facebook size={32}/></div>
+                      <div className="flex gap-8">
+                        <Link href="https://instagram.com" target="_blank"><Instagram size={32}/></Link>
+                        <Link href="https://facebook.com" target="_blank"><Facebook size={32}/></Link>
+                      </div>
                       <div className="text-center md:text-right text-2xl font-serif space-y-4 mt-8 md:mt-12">
-                        <p className="hover:underline cursor-pointer">Blog</p>
-                        <p className="hover:underline cursor-pointer">OPC</p>
-                        <p className="hover:underline cursor-pointer">Library</p>
+                        <Link href="/blog" className="block hover:underline">Blog</Link>
+                        {/* EXTERNAL LINK */}
+                        <Link href="https://opc.org/" target="_blank" rel="noopener noreferrer" className="block hover:underline">OPC</Link>
+                        <Link href="/library" className="block hover:underline">Library</Link>
                       </div>
                     </div>
                   </div>
                 </div>
-              )}
+              )} 
             </motion.div>
           </AnimatePresence>
         </div>
