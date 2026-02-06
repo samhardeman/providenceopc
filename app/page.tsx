@@ -28,6 +28,7 @@ export default function Home() {
   const [beliefIndex, setBeliefIndex] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const scrollTimeout = useRef<NodeJS.Timeout | null>(null);
+  const touchStartY = useRef<number | null>(null);
 
   useEffect(() => {
     const handleScroll = (e: WheelEvent) => {
@@ -42,8 +43,34 @@ export default function Home() {
         scrollTimeout.current = setTimeout(() => { scrollTimeout.current = null; }, 800);
       }
     };
+
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartY.current = e.touches[0].clientY;
+    };
+
+    const handleTouchEnd = (e: TouchEvent) => {
+      if (menuOpen || scrollTimeout.current || touchStartY.current === null) return;
+      const deltaY = touchStartY.current - e.changedTouches[0].clientY;
+      touchStartY.current = null;
+      if (Math.abs(deltaY) < 50) return;
+
+      if (deltaY > 0 && index < 3) {
+        setIndex((prev) => prev + 1);
+        scrollTimeout.current = setTimeout(() => { scrollTimeout.current = null; }, 800);
+      } else if (deltaY < 0 && index > 0) {
+        setIndex((prev) => prev - 1);
+        scrollTimeout.current = setTimeout(() => { scrollTimeout.current = null; }, 800);
+      }
+    };
+
     window.addEventListener("wheel", handleScroll);
-    return () => window.removeEventListener("wheel", handleScroll);
+    window.addEventListener("touchstart", handleTouchStart, { passive: true });
+    window.addEventListener("touchend", handleTouchEnd);
+    return () => {
+      window.removeEventListener("wheel", handleScroll);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchend", handleTouchEnd);
+    };
   }, [index, menuOpen]);
 
   const navLinks = ["Events", "Missions", "About", "Join Us", "Give", "Sermons"];
