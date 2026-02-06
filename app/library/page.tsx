@@ -31,6 +31,10 @@ export default function Library() {
           touchStartY.current = e.touches[0].clientY;
         };
 
+        const handleTouchMove = (e: TouchEvent) => {
+          e.preventDefault();
+        };
+
         const handleTouchEnd = (e: TouchEvent) => {
           if (menuOpen || scrollTimeout.current || touchStartY.current === null) return;
           const deltaY = touchStartY.current - e.changedTouches[0].clientY;
@@ -48,10 +52,12 @@ export default function Library() {
 
         window.addEventListener("wheel", handleScroll);
         window.addEventListener("touchstart", handleTouchStart, { passive: true });
+        window.addEventListener("touchmove", handleTouchMove, { passive: false });
         window.addEventListener("touchend", handleTouchEnd);
         return () => {
           window.removeEventListener("wheel", handleScroll);
           window.removeEventListener("touchstart", handleTouchStart);
+          window.removeEventListener("touchmove", handleTouchMove);
           window.removeEventListener("touchend", handleTouchEnd);
         };
       }, [index, menuOpen]);
