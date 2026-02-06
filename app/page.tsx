@@ -8,6 +8,16 @@ import { motion, AnimatePresence } from "framer-motion";
 import { BookOpen, X, ArrowRight, Instagram, Facebook, QrCode, Mouse } from "lucide-react";
 import Navbar from "@/components/Navbar"; // Adjust path as needed
 
+const BANNER_CONFIG = {
+  color: "#8B0000",
+  durationMs: 5000,
+  items: [
+    "Welcome to Providence OPC — Join us for Sunday Worship at 10:00 AM",
+    "Wednesday School: Dinner at 5:30 PM, Teaching at 6:30 PM",
+    "Visit us at 7575 E Redfield Rd #101, Scottsdale AZ",
+  ],
+};
+
 const BELIEFS = [
   {
     title: "Confessionally Reformed",
@@ -27,8 +37,17 @@ export default function Home() {
   const [index, setIndex] = useState(0);
   const [beliefIndex, setBeliefIndex] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [bannerIndex, setBannerIndex] = useState(0);
   const scrollTimeout = useRef<NodeJS.Timeout | null>(null);
   const touchStartY = useRef<number | null>(null);
+
+  useEffect(() => {
+    if (BANNER_CONFIG.items.length <= 1) return;
+    const interval = setInterval(() => {
+      setBannerIndex((prev) => (prev + 1) % BANNER_CONFIG.items.length);
+    }, BANNER_CONFIG.durationMs);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const handleScroll = (e: WheelEvent) => {
@@ -113,7 +132,27 @@ export default function Home() {
       </div>
 
       <div className="relative z-10 h-full flex flex-col">
-        
+
+        {BANNER_CONFIG.items.length > 0 && (
+          <div
+            className="w-full text-center text-white text-xs md:text-sm font-sans py-2 px-4 overflow-hidden"
+            style={{ backgroundColor: BANNER_CONFIG.color }}
+          >
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={bannerIndex}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.3 }}
+                className="block"
+              >
+                {BANNER_CONFIG.items[bannerIndex]}
+              </motion.span>
+            </AnimatePresence>
+          </div>
+        )}
+
         <Navbar />
 
         {/* --- MAIN CONTENT --- */}

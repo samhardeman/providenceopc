@@ -39,7 +39,7 @@ export default function Navbar() {
             >
               Providence
             </h1>
-            <span className="w-full text-center text-[10px] md:text-xs font-sans tracking-[0.2em] uppercase opacity-80 mt-1 md:mt-2">
+            <span className="w-full text-center text-[10px] md:text-xs font-sans tracking-[0.2em] uppercase opacity-80 -mt-0.5">
               Orthodox Presbyterian Church
             </span>
           </Link>
