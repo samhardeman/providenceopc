@@ -32,7 +32,13 @@ export default function Library() {
         };
 
         const handleTouchMove = (e: TouchEvent) => {
-          e.preventDefault();
+          if (touchStartY.current === null) return;
+          const deltaY = touchStartY.current - e.touches[0].clientY;
+          const swipingDown = deltaY < 0;
+          const swipingUp = deltaY > 0;
+          if ((swipingDown && index > 0) || (swipingUp && index < 3)) {
+            e.preventDefault();
+          }
         };
 
         const handleTouchEnd = (e: TouchEvent) => {
