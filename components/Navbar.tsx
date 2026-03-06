@@ -19,35 +19,36 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="w-full p-6 md:p-8 relative z-[100]">
-        <div className="max-w-[1200px] mx-auto flex items-center justify-between relative">
+      {/* Added shrink-0 to prevent vertical squishing */}
+      <nav className="w-full p-4 md:p-6 lg:p-8 relative z-[100] shrink-0">
+        <div className="max-w-[1400px] mx-auto flex items-center justify-between w-full">
           
-          {/* Left Links */}
-          <div className="hidden md:flex gap-12 text-2xl font-serif">
+          {/* Left Links (Takes up 1 equal fraction of space) */}
+          <div className="hidden md:flex flex-1 justify-center gap-4 lg:gap-8 xl:gap-12 text-base lg:text-xl xl:text-2xl font-serif">
             {navLinks.slice(0, 3).map((l) => (
-              <Link key={l.name} href={l.path} className="hover:opacity-60 transition">
+              <Link key={l.name} href={l.path} className="hover:opacity-60 transition whitespace-nowrap">
                 {l.name}
               </Link>
             ))}
           </div>
 
-          {/* Logo */}
-          <Link href="/" className="absolute left-0 md:left-1/2 md:-translate-x-1/2 top-0 flex flex-col items-start md:items-center">
+          {/* Logo (Shrinks as needed, stays exactly in the center) */}
+          <Link href="/" className="flex flex-col items-center shrink-0 z-10 mx-2 lg:mx-8">
             <h1 
-              className="text-3xl md:text-5xl font-serif uppercase leading-none"
+              className="text-3xl md:text-4xl lg:text-5xl font-serif uppercase leading-none"
               style={{ letterSpacing: "-0.075em" }}
             >
               Providence
             </h1>
-            <span className="w-full text-center text-[10px] md:text-xs font-sans tracking-[0.2em] uppercase opacity-80 -mt-0.5">
+            <span className="w-full text-center text-[8px] md:text-[10px] lg:text-xs font-sans tracking-[0.2em] uppercase opacity-80 -mt-0.5 whitespace-nowrap">
               Orthodox Presbyterian Church
             </span>
           </Link>
 
-          {/* Right Links */}
-          <div className="hidden md:flex gap-12 text-2xl font-serif ml-auto">
+          {/* Right Links (Takes up 1 equal fraction of space) */}
+          <div className="hidden md:flex flex-1 justify-center gap-4 lg:gap-8 xl:gap-12 text-base lg:text-xl xl:text-2xl font-serif">
             {navLinks.slice(3).map((l) => (
-              <Link key={l.name} href={l.path} className="hover:opacity-60 transition">
+              <Link key={l.name} href={l.path} className="hover:opacity-60 transition whitespace-nowrap">
                 {l.name}
               </Link>
             ))}
