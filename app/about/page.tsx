@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Banner from "@/components/Banner";
+import { PASTOR, ELDERS, DEACONS } from "@/data/leadership"; // <-- Adjust this path to match your folder structure
 
 export default function AboutPage() {
   // --- PAGE HEADER IMAGE CONFIGURATION ---
@@ -29,7 +30,6 @@ export default function AboutPage() {
           </>
         )}
 
-        {/* Content Layer: Reduced padding for tighter spacing */}
         <div className="relative z-20 max-w-[1000px] mx-auto px-6 md:px-12 pt-12 pb-10 md:pt-20 md:pb-16 text-center">
           <h1 className="text-5xl md:text-7xl font-serif leading-tight pb-5">
             About Us
@@ -39,7 +39,7 @@ export default function AboutPage() {
       </section>
 
       {/* --- MAIN CONTENT AREA --- */}
-      <div className="max-w-[1000px] mx-auto px-6 md:px-12">
+      <div className="max-w-250 mx-auto px-6 md:px-12">
         <section className="space-y-20">
           <div>
             <h2 className="text-4xl md:text-5xl font-serif border-b border-neutral-900/20 pb-6 mb-12">
@@ -52,61 +52,60 @@ export default function AboutPage() {
                 Session
               </h3>
 
-              {/* Pastor Profile */}
+              {/* Pastor Profile mapped from TS file */}
               <div className="flex flex-col md:flex-row gap-8 md:gap-12 mb-16">
-                {/* Image Placeholder */}
-                <div className="w-full md:w-1/3 aspect-[3/4] bg-neutral-900/5 border border-neutral-900/10 rounded-sm flex items-center justify-center shrink-0">
-                  <span className="text-neutral-400 text-sm tracking-widest uppercase">
-                    Photo
-                  </span>
+                <div className="w-full md:w-1/3 aspect-3/4 bg-neutral-900/5 border border-neutral-900/10 rounded-sm flex items-center justify-center shrink-0 overflow-hidden relative">
+                  {PASTOR.image ? (
+                    <Image
+                      src={PASTOR.image}
+                      alt={PASTOR.name}
+                      fill
+                      className="object-cover"
+                    />
+                  ) : (
+                    <span className="text-neutral-400 text-sm tracking-widest uppercase">
+                      Photo
+                    </span>
+                  )}
                 </div>
 
-                {/* Pastor Bio */}
                 <div className="flex flex-col justify-center">
                   <h4 className="text-3xl md:text-4xl font-serif mb-2">
-                    Rev. David Schexnayder
+                    {PASTOR.name}
                   </h4>
                   <p className="text-neutral-500 uppercase tracking-widest text-sm mb-6 border-b border-neutral-900/10 pb-4 inline-block w-max">
-                    Pastor
+                    {PASTOR.role}
                   </p>
                   <div className="space-y-4 text-neutral-700 leading-relaxed text-lg">
-                    <p>
-                      Pastor Schexnayder was called to plant Providence OPC in
-                      Scottsdale in May 2022. He is a native of the Valley of
-                      the Sun and graduated from the University of Arizona with
-                      a degree in history, where he met his wife Ashleigh.
-                    </p>
-                    <p>
-                      After several years working in teaching and consulting, he
-                      attended and received an MDiv from Reformed Theological
-                      Seminary in Charlotte, NC.
-                    </p>
-                    <p>
-                      After his studies, he returned home to church ministry as
-                      a pastoral intern, elder, and now gospel minister.
-                    </p>
+                    {PASTOR.bio.map((paragraph, index) => (
+                      <p key={index}>{paragraph}</p>
+                    ))}
                   </div>
                 </div>
               </div>
 
-              {/* Elders Grid */}
+              {/* Elders Grid mapped from TS file */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                {[
-                  "Sean McGinty",
-                  "Bill Mulder",
-                  "Doug Whithead",
-                  "Tim Williams",
-                ].map((elder) => (
+                {ELDERS.map((elder) => (
                   <div
-                    key={elder}
+                    key={elder.name}
                     className="bg-neutral-900/5 border border-neutral-900/10 p-6 flex flex-col items-center text-center rounded-sm"
                   >
-                    <div className="w-24 h-24 bg-neutral-900/10 rounded-full mb-6 flex items-center justify-center">
-                      <span className="text-neutral-400 text-xs">Photo</span>
+                    <div className="w-24 h-24 bg-neutral-900/10 rounded-full mb-6 flex items-center justify-center overflow-hidden relative">
+                      {elder.image ? (
+                        <Image
+                          src={elder.image}
+                          alt={elder.name}
+                          fill
+                          className="object-cover"
+                        />
+                      ) : (
+                        <span className="text-neutral-400 text-xs">Photo</span>
+                      )}
                     </div>
-                    <h4 className="font-serif text-xl mb-1">{elder}</h4>
+                    <h4 className="font-serif text-xl mb-1">{elder.name}</h4>
                     <p className="text-neutral-500 text-xs uppercase tracking-widest">
-                      Elder
+                      {elder.role}
                     </p>
                   </div>
                 ))}
@@ -119,23 +118,31 @@ export default function AboutPage() {
                 Diaconate
               </h3>
 
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-                {["Frank Beck", "Alexander Patocs", "Dan Smith"].map(
-                  (deacon) => (
-                    <div
-                      key={deacon}
-                      className="bg-neutral-900/5 border border-neutral-900/10 p-6 flex flex-col items-center text-center rounded-sm"
-                    >
-                      <div className="w-24 h-24 bg-neutral-900/10 rounded-full mb-6 flex items-center justify-center">
+              {/* Deacons Grid mapped from TS file */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                {DEACONS.map((deacon) => (
+                  <div
+                    key={deacon.name}
+                    className="bg-neutral-900/5 border border-neutral-900/10 p-6 flex flex-col items-center text-center rounded-sm"
+                  >
+                    <div className="w-24 h-24 bg-neutral-900/10 rounded-full mb-6 flex items-center justify-center overflow-hidden relative">
+                      {deacon.image ? (
+                        <Image
+                          src={deacon.image}
+                          alt={deacon.name}
+                          fill
+                          className="object-cover"
+                        />
+                      ) : (
                         <span className="text-neutral-400 text-xs">Photo</span>
-                      </div>
-                      <h4 className="font-serif text-xl mb-1">{deacon}</h4>
-                      <p className="text-neutral-500 text-xs uppercase tracking-widest">
-                        Deacon
-                      </p>
+                      )}
                     </div>
-                  ),
-                )}
+                    <h4 className="font-serif text-xl mb-1">{deacon.name}</h4>
+                    <p className="text-neutral-500 text-xs uppercase tracking-widest">
+                      {deacon.role}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

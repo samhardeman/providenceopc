@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import { Search, BookOpen } from "lucide-react";
-import { BOOKS } from "@/app/library/books";
+import { BOOKS } from "@/data/books";
 
 export default function Library() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -13,18 +13,20 @@ export default function Library() {
   // Filter books based on search input (now checking title, author, AND tags)
   const filteredBooks = BOOKS.filter((book) => {
     const term = searchTerm.toLowerCase();
-    
+
     // Check if term matches title or author
-    const matchesText = book.title.toLowerCase().includes(term) || 
-                        book.author.toLowerCase().includes(term);
-    
+    const matchesText =
+      book.title.toLowerCase().includes(term) ||
+      book.author.toLowerCase().includes(term);
+
     // Check if term matches any of the tags
-    const matchesTags = book.tags && book.tags.some(tag => tag.toLowerCase().includes(term));
-    
+    const matchesTags =
+      book.tags && book.tags.some((tag) => tag.toLowerCase().includes(term));
+
     return matchesText || matchesTags;
   });
 
-  const bannerImage = "/image6.jpg"; 
+  const bannerImage = "/image6.jpg";
 
   return (
     <main className="min-h-screen w-full bg-[#FAFAF7] text-neutral-900 selection:bg-neutral-900 selection:text-white font-sans pb-24">
@@ -35,11 +37,11 @@ export default function Library() {
         {bannerImage && (
           <>
             <div className="absolute inset-0 z-0">
-              <Image 
-                src={bannerImage} 
-                alt="Library Header Background" 
-                fill 
-                priority 
+              <Image
+                src={bannerImage}
+                alt="Library Header Background"
+                fill
+                priority
                 className="object-cover blur-[3px]"
               />
             </div>
@@ -60,11 +62,13 @@ export default function Library() {
 
       {/* --- MAIN CONTENT AREA --- */}
       <div className="relative z-10 flex-grow w-full max-w-[1200px] mx-auto px-6 md:px-12">
-        
         {/* Search Bar */}
         <div className="flex justify-center mb-16">
           <div className="relative w-full max-w-lg">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-400" size={20} />
+            <Search
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-400"
+              size={20}
+            />
             <input
               type="text"
               placeholder="Search authors, titles, or tags..."
@@ -89,20 +93,26 @@ export default function Library() {
                   transition={{ duration: 0.2 }}
                   className="bg-neutral-900/5 border border-neutral-900/10 p-4 md:p-6 flex flex-col items-center justify-center text-center rounded-sm aspect-[3/4] hover:bg-neutral-900/10 hover:border-neutral-900/20 transition-all cursor-default group"
                 >
-                  <BookOpen className="text-neutral-300 mb-4 group-hover:text-neutral-400 transition-colors" size={24} />
-                  
+                  <BookOpen
+                    className="text-neutral-300 mb-4 group-hover:text-neutral-400 transition-colors"
+                    size={24}
+                  />
+
                   <h3 className="font-serif text-lg md:text-xl leading-tight mb-2 line-clamp-3">
                     {book.title}
                   </h3>
-                  
+
                   <p className="text-neutral-500 text-[10px] uppercase tracking-widest mb-4 line-clamp-2 border-b border-neutral-900/10 pb-2 w-full">
                     {book.author}
                   </p>
-                  
+
                   {/* Map through the tags (showing up to 3) */}
                   <div className="mt-auto flex flex-wrap justify-center gap-1 w-full">
                     {book.tags?.slice(0, 3).map((tag, idx) => (
-                      <span key={idx} className="text-[9px] uppercase tracking-wider bg-neutral-900/10 px-2 py-1 rounded-sm text-neutral-600 truncate max-w-full">
+                      <span
+                        key={idx}
+                        className="text-[9px] uppercase tracking-wider bg-neutral-900/10 px-2 py-1 rounded-sm text-neutral-600 truncate max-w-full"
+                      >
                         {tag}
                       </span>
                     ))}
@@ -110,9 +120,9 @@ export default function Library() {
                 </motion.div>
               ))
             ) : (
-              <motion.div 
-                initial={{ opacity: 0 }} 
-                animate={{ opacity: 1 }} 
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 className="col-span-full text-center py-24 text-neutral-500 font-serif text-2xl flex flex-col items-center gap-4"
               >
                 <Search size={48} className="opacity-20" />
@@ -121,7 +131,6 @@ export default function Library() {
             )}
           </AnimatePresence>
         </div>
-
       </div>
     </main>
   );
