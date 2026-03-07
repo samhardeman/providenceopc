@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
 import { Playfair_Display, DM_Sans } from "next/font/google";
-import Footer from "@/components/Footer"; // <-- Add this import
+import Footer from "@/components/Footer";
+import TransitionWrapper from "@/components/TransitionWrapper"; // <-- Add this import
 import "./globals.css";
 
-const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+});
 const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-dm-sans" });
 
 export const metadata: Metadata = {
@@ -18,12 +22,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${playfair.variable} ${dmSans.variable} font-sans antialiased flex flex-col min-h-screen`}>
-        {/* Main content wrapper pushes footer to bottom */}
-        <div className="flex-grow">
-          {children}
-        </div>
-        <Footer /> {/* <-- Add the Footer here */}
+      <body
+        className={`${playfair.variable} ${dmSans.variable} font-sans antialiased flex flex-col min-h-screen`}
+      >
+        <TransitionWrapper>{children}</TransitionWrapper>
+
+        <Footer />
       </body>
     </html>
   );

@@ -4,13 +4,9 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const BANNER_CONFIG = {
-  color: "#8B0000",
+  color: "#3f569e",
   durationMs: 5000,
-  items: [
-    "Welcome to Providence OPC — Join us for Sunday Worship at 10:00 AM",
-    "Wednesday School: Dinner at 5:30 PM, Teaching at 6:30 PM",
-    "Visit us at 7575 E Redfield Rd #101, Scottsdale AZ",
-  ],
+  items: [],
 };
 
 export default function Banner() {

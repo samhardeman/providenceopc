@@ -2,14 +2,16 @@
 
 import React from "react";
 import Navbar from "@/components/Navbar";
+import Banner from "@/components/Banner";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 
 export default function EventsPage() {
-  const bannerImage = '/image1.jpg'; // Update this path when ready
-  
+  const bannerImage = "/image1.jpg"; // Update this path when ready
+
   return (
     <main className="min-h-screen w-full bg-[#FAFAF7] text-neutral-900 selection:bg-neutral-900 selection:text-white font-sans pb-24">
+      <Banner />
       <Navbar />
 
       {/* --- PAGE HEADER BANNER --- */}
@@ -17,11 +19,11 @@ export default function EventsPage() {
         {bannerImage && (
           <>
             <div className="absolute inset-0 z-0">
-              <Image 
-                src={bannerImage} 
-                alt="Give Header Background" 
-                fill 
-                priority 
+              <Image
+                src={bannerImage}
+                alt="Give Header Background"
+                fill
+                priority
                 className="object-cover blur-[1px]"
               />
             </div>
@@ -43,13 +45,12 @@ export default function EventsPage() {
       {/* --- MAIN CONTENT AREA --- */}
       <div className="max-w-[1000px] mx-auto px-6 md:px-12">
         <section className="space-y-20">
-          
           {/* Wednesday School */}
           <div>
             <h2 className="text-4xl font-serif border-b border-neutral-900/20 pb-4 mb-8">
               There is nothing here right now :)
             </h2>
-            </div>
+          </div>
         </section>
       </div>
     </main>
