@@ -7,7 +7,7 @@ import Banner from "@/components/Banner";
 
 export default function JoinUsPage() {
   // --- PAGE HEADER IMAGE CONFIGURATION ---
-  const bannerImage = "/image1.jpg"; // Update this path when ready
+  const bannerImage = "/providenceopc/image1.jpg"; // Update this path when ready
 
   return (
     <main className="min-h-screen w-full bg-[#FAFAF7] text-neutral-900 selection:bg-neutral-900 selection:text-white font-sans pb-24">
