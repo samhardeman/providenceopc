@@ -86,7 +86,7 @@ export default function Home() {
               className="absolute inset-0 w-full h-full"
             >
               <Image
-                src={`/image${index + 1}.jpg`}
+                src={`image${index + 1}.jpg`}
                 alt="background"
                 fill
                 priority
