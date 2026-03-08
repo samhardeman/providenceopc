@@ -6,7 +6,7 @@ import { PASTOR, ELDERS, DEACONS } from "@/data/leadership"; // <-- Adjust this 
 
 export default function AboutPage() {
   // --- PAGE HEADER IMAGE CONFIGURATION ---
-  const bannerImage = "image1.jpg"; // Update this path when ready
+  const bannerImage = "/image1.jpg"; // Update this path when ready
 
   return (
     <main className="min-h-screen w-full bg-[#FAFAF7] text-neutral-900 selection:bg-neutral-900 selection:text-white font-sans pb-24">
@@ -20,7 +20,7 @@ export default function AboutPage() {
             <div className="absolute inset-0 z-0">
               <Image
                 src={bannerImage}
-                alt="Outreach Header Background"
+                alt="About Header Background"
                 fill
                 priority
                 className="object-cover blur-[1px]"
