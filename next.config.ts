@@ -7,5 +7,5 @@ const nextConfig: NextConfig = {
 export default nextConfig;
 
 module.exports = {
-  basePath: "/providenceopc",
+  basePath: "",
 };
