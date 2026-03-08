@@ -6,7 +6,7 @@ import { PASTOR, ELDERS, DEACONS } from "@/data/leadership"; // <-- Adjust this 
 
 export default function AboutPage() {
   // --- PAGE HEADER IMAGE CONFIGURATION ---
-  const bannerImage = "/image1.jpg"; // Update this path when ready
+  const bannerImage = "image1.jpg"; // Update this path when ready
 
   return (
     <main className="min-h-screen w-full bg-[#FAFAF7] text-neutral-900 selection:bg-neutral-900 selection:text-white font-sans pb-24">

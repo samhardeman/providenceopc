@@ -26,7 +26,7 @@ export default function Library() {
     return matchesText || matchesTags;
   });
 
-  const bannerImage = "/image6.jpg";
+  const bannerImage = "image6.jpg";
 
   return (
     <main className="min-h-screen w-full bg-[#FAFAF7] text-neutral-900 selection:bg-neutral-900 selection:text-white font-sans pb-24">
