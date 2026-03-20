@@ -8,6 +8,13 @@ import { ArrowRight, Instagram, Facebook, Mouse, MapPin } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Banner from "@/components/Banner";
 
+import image1 from "@/public/image1.jpg";
+import image2 from "@/public/image2.jpg";
+import image3 from "@/public/image3.jpg";
+import image4 from "@/public/image4.jpg";
+
+const BACKGROUND_IMAGES = [image1, image2, image3, image4];
+
 const BELIEFS = [
   {
     id: "confessionally-reformed",
@@ -67,7 +74,6 @@ export default function Home() {
 
   return (
     <main className="relative w-full bg-black text-white selection:bg-white selection:text-black font-sans">
-      {/* FIXED BACKGROUND IMAGES */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <AnimatePresence initial={false}>
           <motion.div
@@ -79,7 +85,7 @@ export default function Home() {
             className="absolute inset-0 w-full h-full"
           >
             <Image
-              src={`/image${bgIndex + 1}.jpg`}
+              src={BACKGROUND_IMAGES[bgIndex]}
               alt="background"
               fill
               priority
