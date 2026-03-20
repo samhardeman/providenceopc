@@ -4,11 +4,10 @@ import Link from "next/link";
 import { ArrowRight, MapPin } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Banner from "@/components/Banner";
+import bannerImage from "@/public/image1.jpg";
+import minimapImg from "@/public/minimap.png";
 
 export default function JoinUsPage() {
-  // --- PAGE HEADER IMAGE CONFIGURATION ---
-  const bannerImage = "/image1.jpg"; // Update this path when ready
-
   return (
     <main className="min-h-screen w-full bg-[#FAFAF7] text-neutral-900 selection:bg-neutral-900 selection:text-white font-sans pb-24">
       <Banner />
@@ -80,12 +79,9 @@ export default function JoinUsPage() {
             <div className="lg:col-span-2 relative bg-neutral-900 text-white rounded-sm overflow-hidden flex flex-col group min-h-[350px]">
               {/* Background Map Image */}
               <div className="absolute inset-0 z-0 opacity-20 group-hover:opacity-40 transition-opacity duration-700">
-                {/* NOTE: You can replace this src with a real Mapbox or Google Static Map API URL. 
-                For now, I'm using a placeholder map image and using Tailwind's `grayscale invert` 
-                to perfectly color-match it to your dark theme! 
-              */}
+                {}
                 <img
-                  src="/minimap.png"
+                  src={minimapImg.src}
                   alt="Map of Providence OPC location"
                   className="w-full h-full object-cover grayscale contrast-125"
                 />

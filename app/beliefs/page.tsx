@@ -3,10 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Banner from "@/components/Banner";
+import bannerImage from "@/public/image1.jpg";
 import { ArrowRight } from "lucide-react";
 
 export default function BeliefsPage() {
-  const bannerImage = "/image1.jpg"; // Update this path when ready
 
   return (
     <main className="min-h-screen w-full bg-[#FAFAF7] text-neutral-900 selection:bg-neutral-900 selection:text-white font-sans pb-24">

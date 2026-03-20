@@ -2,11 +2,10 @@ import React from "react";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Banner from "@/components/Banner";
+import bannerImage from "@/public/image1.jpg";
 import { PASTOR, ELDERS, DEACONS } from "@/data/leadership"; // <-- Adjust this path to match your folder structure
 
 export default function AboutPage() {
-  // --- PAGE HEADER IMAGE CONFIGURATION ---
-  const bannerImage = "/image1.jpg"; // Update this path when ready
 
   return (
     <main className="min-h-screen w-full bg-[#FAFAF7] text-neutral-900 selection:bg-neutral-900 selection:text-white font-sans pb-24">

@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import Banner from "@/components/Banner";
+import bannerImage from "@/public/image1.jpg";
 
 // Dynamically import the map to prevent Server-Side Rendering errors with Leaflet
 const MapWithNoSSR = dynamic(() => import("@/components/GroupsMap"), {
@@ -19,7 +20,6 @@ const MapWithNoSSR = dynamic(() => import("@/components/GroupsMap"), {
 });
 
 export default function EventsPage() {
-  const bannerImage = "/image1.jpg"; // Update this path when ready
 
   return (
     <main className="min-h-screen w-full bg-[#FAFAF7] text-neutral-900 selection:bg-neutral-900 selection:text-white font-sans pb-24">
