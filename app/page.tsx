@@ -102,7 +102,7 @@ export default function Home() {
           data-index="0"
           className="min-h-[85dvh] w-full flex flex-col justify-between"
         >
-          <div className="flex-grow flex items-center justify-center px-4 md:px-8 pt-12">
+          <div className="flex-grow flex items-center justify-center px-4 md:px-8 pb-10 md:pb-10 lg:pb-10">            
             <h2 className="text-3xl md:text-5xl lg:text-7xl font-serif leading-tight text-center max-w-5xl drop-shadow-2xl">
               Ascribe to the LORD the glory due his name;{" "}
               <br className="hidden md:block" />
@@ -130,8 +130,7 @@ export default function Home() {
           data-index="1"
           className="min-h-[100dvh] w-full flex items-center justify-center py-20 md:py-32"
         >
-          <div className="w-full max-w-[1200px] flex flex-col items-center gap-4 md:gap-10 px-4 md:px-0">
-            <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 md:gap-6 w-full text-left">
+<div className="w-full max-w-[1200px] flex flex-col items-center gap-4 md:gap-10 px-4 md:px-8 lg:px-12">            <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 md:gap-6 w-full text-left">
               <div className="lg:col-span-3 bg-white/5 border border-white/10 p-6 md:p-12 rounded-sm backdrop-blur-md flex flex-col justify-between">
                 <div>
                   <h3 className="text-3xl md:text-5xl font-serif mb-6 md:mb-8 border-b border-white/20 pb-3 md:pb-4">
@@ -281,8 +280,7 @@ export default function Home() {
           data-index="3"
           className="min-h-[100dvh] w-full flex items-center justify-center py-20 md:py-32"
         >
-          <div className="w-full max-w-[1200px] flex flex-col justify-between min-h-[50vh] px-4 md:px-0">
-            <div className="flex flex-col md:flex-row items-center md:items-start justify-between space-y-12 md:space-y-0 flex-grow">
+<div className="w-full max-w-[1200px] flex flex-col justify-between min-h-[50vh] px-4 md:px-8 lg:px-12">            <div className="flex flex-col md:flex-row items-center md:items-start justify-between space-y-12 md:space-y-0 flex-grow">
               <div className="text-center md:text-left">
                 <h2 className="text-4xl md:text-6xl font-serif mb-4">
                   Contact

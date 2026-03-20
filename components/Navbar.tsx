@@ -32,9 +32,7 @@ export default function Navbar() {
       {/* Made the nav sticky top-0. 
         Added dynamic padding so it shrinks slightly when scrolling.
       */}
-      <nav
-        className={`sticky top-0 left-0 w-full z-[100] transition-all duration-300 ${scrolled ? "py-2" : "py-4 md:py-6 lg:py-8"}`}
-      >
+<nav className="sticky top-0 left-0 w-full z-[100] py-2 md:py-3 lg:py-4">
         {/* FADE OUT EFFECT FOR CONTENT SCROLLING UNDERNEATH */}
         <div
           className={`absolute inset-0 w-full h-[150%] pointer-events-none transition-opacity duration-500 ${scrolled ? "opacity-100" : "opacity-0"}`}
