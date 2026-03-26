@@ -30,6 +30,8 @@ return (
               alt="background"
               fill
               priority
+              quality={30}
+              placeholder="blur"
               className="object-cover brightness-[0.3] blur-[1px]"
             />
           </div>
@@ -202,6 +204,8 @@ return (
               src={image4}
               alt="background"
               fill
+              quality={30}
+              placeholder="blur"
               className="object-cover brightness-[0.3] blur-[1px]"
             />
           </div>
