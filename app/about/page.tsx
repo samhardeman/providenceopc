@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Banner from "@/components/Banner";
-const bannerImage = "/providence-opc-19.jpg";
+const bannerImage = "@/public/providence-opc-19.jpg";
 import { ArrowRight } from "lucide-react";
 import { PASTOR, ELDERS, DEACONS } from "@/data/leadership"; // <-- Adjust this path to match your folder structure
 

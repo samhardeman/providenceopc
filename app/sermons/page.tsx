@@ -3,13 +3,16 @@
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
+import Banner from "@/components/Banner";
+
 import dynamic from "next/dynamic";
+const bannerImage = "@/public/providence-opc-19.jpg";
 
 export default function EventsPage() {
-  const bannerImage = "/providence-opc-19.jpg";
   
   return (
     <main className="min-h-screen w-full bg-[#FAFAF7] text-neutral-900 selection:bg-neutral-900 selection:text-white font-sans pb-24">
+      <Banner />
       <Navbar />
 
       {/* --- PAGE HEADER BANNER --- */}

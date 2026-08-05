@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Banner from "@/components/Banner";
-const bannerImage = "/providence-opc-14.jpg";
+const bannerImage = "@/public/providence-opc-14.jpg";
 import { ExternalLink } from "lucide-react";
 
 export default function OutreachPage() {

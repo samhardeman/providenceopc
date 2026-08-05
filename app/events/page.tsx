@@ -6,7 +6,7 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import Banner from "@/components/Banner";
 import EventCalendar from "@/components/EventCalendar";
-const bannerImage = "/providence-opc-61.jpg";
+const bannerImage = "@/public/providence-opc-61.jpg";
 
 // Dynamically import the map to prevent Server-Side Rendering errors with Leaflet
 const MapWithNoSSR = dynamic(() => import("@/components/GroupsMap"), {

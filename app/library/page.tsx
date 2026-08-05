@@ -3,9 +3,12 @@
 import { motion, AnimatePresence } from "framer-motion";
 import React, { useState } from "react";
 import Image from "next/image";
+import Banner from "@/components/Banner";
+
 import Navbar from "@/components/Navbar";
 import { Search, BookOpen } from "lucide-react";
 import { BOOKS } from "@/data/books";
+const bannerImage = "@/public/providence-opc-59.jpg";
 
 export default function Library() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -26,10 +29,10 @@ export default function Library() {
     return matchesText || matchesTags;
   });
 
-  const bannerImage = "/providence-opc-59.jpg";
-
   return (
     <main className="min-h-screen w-full bg-[#FAFAF7] text-neutral-900 selection:bg-neutral-900 selection:text-white font-sans pb-24">
+      <Banner />
+      
       <Navbar />
 
       {/* --- PAGE HEADER BANNER --- */}

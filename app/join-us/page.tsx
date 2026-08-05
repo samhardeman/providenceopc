@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ArrowRight, MapPin } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Banner from "@/components/Banner";
-const bannerImage = "/providence-opc-61.jpg";
+const bannerImage = "@/public/providence-opc-61.jpg";
 import minimapImg from "@/public/minimap.png";
 
 export default function JoinUsPage() {

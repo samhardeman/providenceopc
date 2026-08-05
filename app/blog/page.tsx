@@ -3,7 +3,7 @@
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Banner from "@/components/Banner";
-const bannerImage = "/providence-opc-59.jpg";
+const bannerImage = "@/public/providence-opc-59.jpg";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 
