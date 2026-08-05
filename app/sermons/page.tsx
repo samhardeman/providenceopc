@@ -4,7 +4,6 @@ import React from "react";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import Banner from "@/components/Banner";
-
 import dynamic from "next/dynamic";
 const bannerImage = "@/public/providence-opc-19.jpg";
 
@@ -20,11 +19,11 @@ export default function EventsPage() {
         {bannerImage && (
           <>
             <div className="absolute inset-0 z-0">
-              <Image 
-                src={bannerImage} 
-                alt="Sermons Header Background" 
-                fill 
-                priority 
+              <Image
+                src={bannerImage}
+                alt="Sermon Header Background"
+                fill
+                priority
                 className="object-cover blur-[0.8px]"
               />
             </div>
