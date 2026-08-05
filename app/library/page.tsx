@@ -26,7 +26,7 @@ export default function Library() {
     return matchesText || matchesTags;
   });
 
-  const bannerImage = "/image6.jpg";
+  const bannerImage = "/providence-opc-59.jpg";
 
   return (
     <main className="min-h-screen w-full bg-[#FAFAF7] text-neutral-900 selection:bg-neutral-900 selection:text-white font-sans pb-24">
@@ -42,7 +42,7 @@ export default function Library() {
                 alt="Library Header Background"
                 fill
                 priority
-                className="object-cover blur-[3px]"
+                className="object-cover blur-[2.4px]"
               />
             </div>
             <div className="absolute inset-0 z-10 bg-[#FAFAF7]/80 backdrop-blur-sm" />

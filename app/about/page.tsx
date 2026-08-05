@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Banner from "@/components/Banner";
-import bannerImage from "@/public/image1.jpg";
+const bannerImage = "/providence-opc-19.jpg";
 import { ArrowRight } from "lucide-react";
 import { PASTOR, ELDERS, DEACONS } from "@/data/leadership"; // <-- Adjust this path to match your folder structure
 
@@ -23,7 +23,7 @@ export default function AboutPage() {
                 alt="About Header Background"
                 fill
                 priority
-                className="object-cover blur-[1px]"
+                className="object-cover blur-[0.8px]"
               />
             </div>
             <div className="absolute inset-0 z-10 bg-[#FAFAF7]/50 backdrop-blur-sm" />

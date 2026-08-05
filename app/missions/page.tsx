@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Banner from "@/components/Banner";
-import bannerImage from "@/public/image1.jpg";
+const bannerImage = "/providence-opc-14.jpg";
 import { ExternalLink } from "lucide-react";
 
 export default function OutreachPage() {
@@ -23,7 +23,7 @@ export default function OutreachPage() {
                 alt="Outreach Header Background"
                 fill
                 priority
-                className="object-cover blur-[1px]"
+                className="object-cover blur-[0.8px]"
               />
             </div>
             <div className="absolute inset-0 z-10 bg-[#FAFAF7]/50 backdrop-blur-sm" />

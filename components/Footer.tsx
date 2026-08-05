@@ -82,7 +82,7 @@ export default function Footer() {
 
       {/* Bottom Legal / Copyright */}
       <div className="max-w-[1200px] mx-auto border-t border-neutral-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs opacity-60 text-center md:text-left">
-        <p>© {new Date().getFullYear()} Providence Orthodox Presbyterian Church. All rights reserved.</p>
+        <p>© <span suppressHydrationWarning>{new Date().getFullYear()}</span> Providence Orthodox Presbyterian Church. All rights reserved.</p>
         <p>Providence is a thankful member of the Orthodox Presbyterian Church.</p>
       </div>
     </footer>

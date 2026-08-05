@@ -5,7 +5,8 @@ import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import Banner from "@/components/Banner";
-import bannerImage from "@/public/image1.jpg";
+import EventCalendar from "@/components/EventCalendar";
+const bannerImage = "/providence-opc-61.jpg";
 
 // Dynamically import the map to prevent Server-Side Rendering errors with Leaflet
 const MapWithNoSSR = dynamic(() => import("@/components/GroupsMap"), {
@@ -36,7 +37,7 @@ export default function EventsPage() {
                 alt="Events Header Background"
                 fill
                 priority
-                className="object-cover blur-[1px]"
+                className="object-cover blur-[0.8px]"
               />
             </div>
             <div className="absolute inset-0 z-10 bg-[#FAFAF7]/50 backdrop-blur-sm" />
@@ -57,6 +58,15 @@ export default function EventsPage() {
       {/* --- MAIN CONTENT AREA --- */}
       <div className="max-w-[1000px] mx-auto px-6 md:px-12">
         <section className="space-y-20">
+
+          {/* ── Calendar ─────────────────────────────────────────────────── */}
+          <div>
+            <h2 className="text-4xl font-serif border-b border-neutral-900/20 pb-4 mb-8">
+              Calendar
+            </h2>
+            <EventCalendar />
+          </div>
+
           {/* Wednesday School */}
           <div>
             <h2 className="text-4xl font-serif border-b border-neutral-900/20 pb-4 mb-8">

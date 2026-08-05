@@ -8,8 +8,8 @@ import { ArrowRight, Instagram, Facebook, Mouse, MapPin } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Banner from "@/components/Banner";
 
-import image1 from "@/public/image1.jpg";
-import image4 from "@/public/image4.jpg"; 
+import heroImage from "@/public/providence-opc-02.jpg";
+import footerImage from "@/public/providence-opc-62.jpg";
 
 export default function Home() {
 return (
@@ -26,13 +26,13 @@ return (
           {/* Static Background Image anchored just to this section */}
           <div className="absolute inset-0 z-0 pointer-events-none">
             <Image
-              src={image1}
-              alt="background"
+              src={heroImage}
+              alt="Worship at Providence Orthodox Presbyterian Church"
               fill
               priority
               quality={30}
               placeholder="blur"
-              className="object-cover brightness-[0.3] blur-[1px]"
+              className="object-cover brightness-[0.3] blur-[0.8px]"
             />
           </div>
 
@@ -201,12 +201,12 @@ return (
           {/* Static Background Image anchored just to this section */}
           <div className="absolute inset-0 z-0 pointer-events-none">
             <Image
-              src={image4}
-              alt="background"
+              src={footerImage}
+              alt="Fellowship at Providence Orthodox Presbyterian Church"
               fill
               quality={30}
               placeholder="blur"
-              className="object-cover brightness-[0.3] blur-[1px]"
+              className="object-cover brightness-[0.3] blur-[0.8px]"
             />
           </div>
 
@@ -281,7 +281,7 @@ return (
 
             <div className="mt-16 pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center gap-4 text-sm opacity-50 text-center md:text-left w-full font-sans">
               <p>
-                © {new Date().getFullYear()} Providence Orthodox Presbyterian
+                 © <span suppressHydrationWarning>{new Date().getFullYear()}</span> Providence Orthodox Presbyterian
                 Church.
               </p>
               <p>A thankful member of the Orthodox Presbyterian Church.</p>

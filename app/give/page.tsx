@@ -3,7 +3,7 @@
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Banner from "@/components/Banner";
-import bannerImage from "@/public/image1.jpg";
+const bannerImage = "/providence-opc-14.jpg";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 
@@ -24,7 +24,7 @@ export default function EventsPage() {
                 alt="Give Header Background"
                 fill
                 priority
-                className="object-cover blur-[1px]"
+                className="object-cover blur-[0.8px]"
               />
             </div>
             <div className="absolute inset-0 z-10 bg-[#FAFAF7]/50 backdrop-blur-sm" />
