@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import Banner from "@/components/Banner";
 import dynamic from "next/dynamic";
-const bannerImage = "@/public/providence-opc-19.jpg";
+const bannerImage = "/providence-opc-19.jpg";
 
 export default function EventsPage() {
   

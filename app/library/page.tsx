@@ -8,7 +8,7 @@ import Banner from "@/components/Banner";
 import Navbar from "@/components/Navbar";
 import { Search, BookOpen } from "lucide-react";
 import { BOOKS } from "@/data/books";
-const bannerImage = "@/public/providence-opc-59.jpg";
+const bannerImage = "/providence-opc-59.jpg";
 
 export default function Library() {
   const [searchTerm, setSearchTerm] = useState("");
